@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
       if (w) {
         std::cout << '-';
       }
-      // Given dictionary size, bias introduces by modulo operation is negligible
+      // Given dictionary size, bias introduced by modulo operation is negligible
       std::cout << word.at(get_random_uint64() % word.size());
     }
     std::cout << std::endl;
