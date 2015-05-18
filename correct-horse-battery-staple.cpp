@@ -1,4 +1,4 @@
-// Pick four random words from dictionary for use as password.
+// Pick five random words from dictionary for use as password.
 // See https://xkcd.com/936/ for rationale.
 
 #include <iostream>
@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
     candidates = atoi(argv[1]);
   }
   for (int i = 0; i < candidates; i++) {
-    for (int w = 0; w < 4; w++) {
+    for (int w = 0; w < 5; w++) {
       if (w) {
         std::cout << '-';
       }
