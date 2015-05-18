@@ -26,9 +26,9 @@ uint64_t get_random_uint64(void)
 
 int main(int argc, char* argv[])
 {
-  std::ifstream f("/usr/share/dict/words");
+  std::ifstream f("google-10000-english-usa.txt"); // shorter than /usr/share/dict/words
   if (!f.is_open()) {
-    perror("Error opening file");
+    perror("Error opening dictionary file");
     return -1;
   }
   std::string line;
