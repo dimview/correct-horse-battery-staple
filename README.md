@@ -8,6 +8,10 @@ Usage:
 
     $ make correct-horse-battery-staple
     c++     correct-horse-battery-staple.cpp   -o correct-horse-battery-staple
+
+    $ ./correct-horse-battery-staple
+    seattle-favor-save-css
+
     $ ./correct-horse-battery-staple 10
     full-clubs-drive-affiliated
     discussing-plugins-given-hung
