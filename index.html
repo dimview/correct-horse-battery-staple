@@ -21,6 +21,10 @@
     }  
   }
   
+  function WordFilter(word) {
+    return word.length >= 4 && word.length <= 6;
+  }
+  
   function LoadDictionary()
   {
     var oFrame = document.getElementById("frmFile");
@@ -28,7 +32,7 @@
     while (strRawContents.indexOf("\r") >= 0) {
       strRawContents = strRawContents.replace("\r", "");
     }
-    arrLines = strRawContents.split("\n");
+    arrLines = strRawContents.split("\n").filter(WordFilter);
   }
 </script>
 </head>
