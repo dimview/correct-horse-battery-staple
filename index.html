@@ -1,0 +1,58 @@
+<head>
+<title>Correct-horse-battery-staple password generator</title>
+<script type="text/javascript">
+  var arrLines;
+  
+  function pickWords()
+  {
+    var r = new Uint32Array(5*10);
+    window.crypto.getRandomValues(r);
+
+    var k = 0;
+    for (var i = 0; i < 10; i++) {
+      var p = '';
+      for (var j = 0; j < 5; j++) {
+        if (j > 0) {
+          p += '-';
+        }
+        p += arrLines[r[k++] % arrLines.length];
+      }
+      document.getElementById("divPassword" + i).textContent = p;
+    }  
+  }
+  
+  function LoadDictionary()
+  {
+    var oFrame = document.getElementById("frmFile");
+    var strRawContents = oFrame.contentWindow.document.body.childNodes[0].innerHTML;
+    while (strRawContents.indexOf("\r") >= 0) {
+      strRawContents = strRawContents.replace("\r", "");
+    }
+    arrLines = strRawContents.split("\n");
+  }
+</script>
+</head>
+<body>
+<iframe id="frmFile" src="google-10000-english-usa.txt" 
+onload="LoadDictionary(); pickWords();" style="display: none;"></iframe>
+
+<h3>Correct-horse-battery-staple Password Generator</h3>
+
+<p>See <a href="https://xkcd.com/936/">XKCD 936</a> for rationale. Completely client-side
+(inspect the source to confirm).
+
+<ol>
+<li id="divPassword0">
+<li id="divPassword1">
+<li id="divPassword2">
+<li id="divPassword3">
+<li id="divPassword4">
+<li id="divPassword5">
+<li id="divPassword6">
+<li id="divPassword7">
+<li id="divPassword8">
+<li id="divPassword9">
+</ol>
+
+<p><input id="buttonGenerate" type="button" value="Generate different passwords" autofocus onclick="pickWords()"/>
+</body>
